@@ -10,6 +10,6 @@ class IndexController
 {
     public function indexAction()
     {
-        echo 'Hello VeryStar';
+        view()->display('index.php', ['name' => 'VeryStar']);
     }
 }
