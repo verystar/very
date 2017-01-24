@@ -6,7 +6,7 @@
  * Time: 下午4:24
  */
 
-if (ENVIRON == 'dev') {
+if (ENVIRON == 'local') {
     return array(
         'default' => array(
             'dbtype'    => 'mysql',

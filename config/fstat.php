@@ -5,7 +5,7 @@
  * Date: 15/2/15 下午9:30
  */
 
-if (ENVIRON == 'dev') {
+if (ENVIRON == 'local') {
     return [
         'use_db'       => 'stat',
         'is_stat'      => true,

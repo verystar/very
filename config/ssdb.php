@@ -3,7 +3,7 @@
  * Redis配置
  */
 
-if (ENVIRON == 'dev') {
+if (ENVIRON == 'local') {
     return [
         'pay' => [
             'host' => '127.0.0.1',

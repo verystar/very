@@ -3,7 +3,7 @@
  * Redis配置
  */
 
-if (ENVIRON == 'dev') {
+if (ENVIRON == 'local') {
     return array(
         'default' => array(
             '1' => array(

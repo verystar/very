@@ -12,11 +12,10 @@ define('APP_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 
 $app_env = getenv('APP_ENV');
 $app_env = $app_env ? $app_env : 'pro';
-$app_env = $app_env == 'local' ? 'dev' : $app_env;
 
 define('ENVIRON', $app_env);
 //define('DEBUG', true);
-define('DEBUG', (ENVIRON == 'dev' || ENVIRON == 'test'));
+define('DEBUG', (ENVIRON == 'local' || ENVIRON == 'test'));
 
 /**
  * 是否开启debug
