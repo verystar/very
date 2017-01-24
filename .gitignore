@@ -1,0 +1,5 @@
+/vendor
+/logs
+/.idea/
+composer.lock
+config/field.php
