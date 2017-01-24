@@ -1,0 +1,34 @@
+#!/usr/bin/env php
+<?php
+/**
+ * Created by PhpStorm.
+ * User: 蔡旭东 caixudong@verystar.cn
+ * Date: 13/01/2017 9:55 AM
+ */
+
+error_reporting(E_ALL ^ E_NOTICE);
+ini_set('display_errors', 'On');
+
+$app = require_once __DIR__ . '/bootstrap.php';
+$app->set('namespace', 'App');
+
+if (!is_cli()) {
+    throw new RuntimeException("Only under the command line");
+}
+
+$command = trim($argv[1]);
+if (!$command) {
+    throw new InvalidArgumentException('command not null');
+}
+
+$params = explode(':', $command);
+
+foreach ($params as $param) {
+    if (!preg_match('/([a-zA-Z]\w*)/', $param)) {
+        throw new RuntimeException("Class names can not begin with a number: " . $param);
+    }
+}
+
+$classname = $app->getNamespace() . '\\Console\\' . implode('\\', array_map('ucfirst', $params));
+
+$app->make($classname)->handle();
