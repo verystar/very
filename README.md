@@ -1,14 +1,44 @@
-# Very framework WEB示例
+# Very framework web demo
 
-这是一个框架的示例,演示了如何使用Very framework框架,包括依赖注入,命令行,路由规则
+This is PHP framework for VeryStar demo
 
-## 环境变量配置
+## Environment configuration
 
-线下环境PHP-FPM需要设置APP_ENV环境变量为local
+Offline PHP-FPM must setting APP_ENV=local
 ```
 env[APP_ENV]=local
 ```
 
-命令行
+Command line
+
 /etc/profile
+```
 export APP_ENV="local"
+```
+
+## Web Server Configuration
+
+
+### Apache
+
+Edit file `.htaccess` 
+
+```
+Options +FollowSymLinks
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.php [L]
+```
+
+### Nginx
+
+```
+root  /WebPath/public;
+
+location / {
+    try_files $uri $uri/ /index.php?$query_string;
+}
+
+```
