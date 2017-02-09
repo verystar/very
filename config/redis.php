@@ -4,36 +4,33 @@
  */
 
 if (ENVIRON == 'local') {
-    return array(
-        'default' => array(
-            '1' => array(
-                'master' => '127.0.0.1:6379',
-//                'slave'  => array(
-//                    '127.0.0.1:6380',
-//                )
-            ),
-        ),
-    );
+    return [
+        'default' => [
+            'host'     => 'localhost',
+            'password' => null,
+            'port'     => 6379,
+            'database' => 0,
+            'timeout'  => 1,
+        ]
+    ];
 } elseif (ENVIRON == 'test') {
-    return array(
-        'default' => array(
-            '1' => array(
-                'master' => '127.0.0.1:6381',
-//                'slave'  => array(
-//                    '127.0.0.1:6380',
-//                )
-            ),
-        ),
-    );
+    return [
+        'default' => [
+            'host'     => 'localhost',
+            'password' => null,
+            'port'     => 6379,
+            'database' => 0,
+            'timeout'  => 1,
+        ]
+    ];
 } else {
-    return array(
-        'default' => array(
-            '1' => array(
-                'master' => '127.0.0.1:6381',
-//                'slave'  => array(
-//                    '127.0.0.1:6380',
-//                )
-            ),
-        ),
-    );
+    return [
+        'default' => [
+            'host'     => 'localhost',
+            'password' => null,
+            'port'     => 6379,
+            'database' => 0,
+            'timeout'  => 1,
+        ]
+    ];
 }

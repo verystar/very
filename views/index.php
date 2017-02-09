@@ -1,5 +1,5 @@
 <?php view()->extend('base'); ?>
-<?php view()->start('css')?>
+<?php view()->start('css') ?>
 <style>
     html, body {
         background-color: #fff;
@@ -52,18 +52,24 @@
         margin-bottom: 30px;
     }
 </style>
-<?php view()->stop()?>
+<?php view()->stop() ?>
 <?php view()->start('content'); ?>
 <div class="flex-center position-ref full-height">
 
     <div class="content">
         <div class="title m-b-md">
-            Hello <?=$name?>
+            Hello <?= $name ?>
         </div>
 
         <div class="links">
             <a href="http://verystar.cn/">About</a>
             <a href="https://github.com/verystar/framework">GitHub</a>
+        </div>
+        <div>
+            <?php
+            $start_time = $_SERVER['REQUEST_TIME_FLOAT'] ? $_SERVER['REQUEST_TIME_FLOAT'] : $_SERVER['REQUEST_TIME'];
+            echo microtime(true) - $start_time;
+            ?>
         </div>
     </div>
 </div>
