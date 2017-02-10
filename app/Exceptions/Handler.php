@@ -16,7 +16,7 @@ class Handler
     public function render(HttpResponseException $e)
     {
         if (!is_object($e)) {
-            set_status_header(403);
+            response()->setStatusCode(403);
             echo 'not found.';
 
             return false;
@@ -27,7 +27,7 @@ class Handler
             case HttpResponseException::ERR_NOTFOUND_CONTROLLER:
             case HttpResponseException::ERR_NOTFOUND_ACTION:
             case HttpResponseException::ERR_NOTFOUND_VIEW:
-                set_status_header(404);
+                response()->setStatusCode(404);
                 echo $e->getMessage();
                 break;
             default :

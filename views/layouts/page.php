@@ -1,8 +1,5 @@
 <?php
-parse_str($_SERVER['QUERY_STRING'], $params);
-unset($params['page']);
-$page_url = isset($page_url) ? $page_url : url(parse_url(request()->uri(), PHP_URL_PATH) . ($params ? '?' . http_build_query($params) : ''));
-$page_url .= (strpos($page_url, '?') === false ? '?' : '&') . 'page=';
+$page_url = url()->make(request()->uri())->remove(['page'])->url();
 ?>
 <?php if (is_object($pager)) { ?>
     <ul class="pagination pagination-sm nomargin">
