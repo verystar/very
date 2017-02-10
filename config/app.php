@@ -36,9 +36,8 @@ return array(
         Very\Http\HttpServiceProvider::class,
         Very\Routing\RouterServiceProvider::class,
         Very\Support\StatServiceProvider::class,
-        //api cannot need session cookie,so don't load
-        //Very\Session\SessionServiceProvider::class,
-        //Very\Cookie\CookieServiceProvider::class,
+        Very\Session\SessionServiceProvider::class,
+        Very\Cookie\CookieServiceProvider::class,
 
         /*
          * Package Service Providers...
