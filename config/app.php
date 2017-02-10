@@ -2,6 +2,7 @@
 return array(
     'charset'       => 'utf-8',
     'timezone'      => 'Asia/Shanghai',
+    'resource_url'=> ENVIRON == 'local' ? '//localhost/' : '//localhost/',
     /*
     |--------------------------------------------------------------------------
     | Logging Configuration
