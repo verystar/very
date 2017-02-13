@@ -14,7 +14,7 @@ class FooController
     /**
      * FooController constructor.
      *
-     * @param UserModel $userModel  依赖注入
+     * @param UserModel $userModel 依赖注入
      */
     public function __construct(UserModel $userModel)
     {
@@ -23,6 +23,19 @@ class FooController
 
     private function fooAction()
     {
-        echo 'foo action';
+        //如果model申明了table和primaryKey属性,则可以使用便捷的三个方法来操作user表
+        $id = $this->userModel->insert([
+            'user_name' => 'test',
+            'password'  => '111'
+        ]);
+
+        $this->userModel->update([
+            'user_name' => 'test2',
+            'user_id'  => $id
+        ]);
+
+        p($this->userModel->get($id));
+
+        $this->userModel->delete($id);
     }
 }

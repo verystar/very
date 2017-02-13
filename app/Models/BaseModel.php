@@ -8,11 +8,11 @@ namespace App\Models;
  */
 
 use Very\Model;
-use Very\Cache\SSDB;
+use App\Traits\SsdbTrait;
 
 class BaseModel extends Model
 {
-    public $use_ssdb = 'default';
+    use SsdbTrait;
 
     //缓存时间
     const CACHE_WEEK_TTL   = 604800;//7天
@@ -21,16 +21,6 @@ class BaseModel extends Model
     const CACHE_MIN_TTL    = 60;//1分钟
     const ACCESS_TOKEN_TTL = 180;//180秒
 
-    /**
-     * @param string $db
-     *
-     * @return SSDB | Object
-     */
-    public function ssdb($db = '')
-    {
-        $db = $db ? $db : $this->use_ssdb;
-        return SSDB::getInstance($db);
-    }
 
     public function field($table)
     {

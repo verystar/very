@@ -7,6 +7,6 @@
 
 return [
     'session_lefttime' => 86400, //默认24小时
-    'session_name'     => 'verystar_pay',
+    'session_name'     => 'very',
     'session_domain'   => '.verystar.cn',
 ];
