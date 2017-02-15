@@ -18,13 +18,17 @@ class TrimStrings
     {
         foreach ($_GET as $k => &$v) {
             if (!in_array($k, $this->except)) {
-                $v = trim($v);
+                if (is_string($v)) {
+                    $v = trim($v);
+                }
             }
         }
 
         foreach ($_POST as $k => &$v) {
             if (!in_array($k, $this->except)) {
-                $v = trim($v);
+                if (is_string($v)) {
+                    $v = trim($v);
+                }
             }
         }
     }
