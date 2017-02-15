@@ -18,7 +18,12 @@ return [
     'alpha_num'            => ':attribute 只能由字母和数字组成。',
     'array'                => ':attribute 必须是一个数组。',
     'before'               => ':attribute 必须是一个在 :date 之前的日期。',
-    'between'              => ':attribute 必须介于 :min - :max 之间。',
+    'between'              => [
+        'numeric' => ':attribute 必须介于 :min - :max 之间。',
+        'file'    => ':attribute 必须介于 :min - :max kb 之间。',
+        'string'  => ':attribute 必须介于 :min - :max 个字符之间。',
+        'array'   => ':attribute 必须只有 :min - :max 个单元。',
+    ],
     'boolean'              => ':attribute 必须为布尔值。',
     'confirmed'            => ':attribute 两次输入不一致。',
     'date'                 => ':attribute 不是一个有效的日期。',
@@ -30,8 +35,18 @@ return [
     'integer'              => ':attribute 必须是整数。',
     'ip'                   => ':attribute 必须是有效的 IP 地址。',
     'json'                 => ':attribute 必须是正确的 JSON 格式。',
-    'max'                  => ':attribute 不能大于 :max。',
-    'min'                  => ':attribute 必须大于等于 :min。',
+    'max'                  => [
+        'numeric' => ':attribute 不能大于 :max。',
+        'file'    => ':attribute 不能大于 :max kb。',
+        'string'  => ':attribute 不能大于 :max 个字符。',
+        'array'   => ':attribute 最多只有 :max 个单元。',
+    ],
+    'min'                  => [
+        'numeric' => ':attribute 必须大于等于 :min。',
+        'file'    => ':attribute 大小不能小于 :min kb。',
+        'string'  => ':attribute 至少为 :min 个字符。',
+        'array'   => ':attribute 至少有 :min 个单元。',
+    ],
     'not_in'               => '已选的属性 :attribute 非法。',
     'numeric'              => ':attribute 必须是一个数字。',
     'present'              => ':attribute 必须存在。',
@@ -43,6 +58,12 @@ return [
     'required_with_all'    => '当 :values 存在时 :attribute 不能为空。',
     'required_without'     => '当 :values 不存在时 :attribute 不能为空。',
     'required_without_all' => '当 :values 都不存在时 :attribute 不能为空。',
+    'size'                 => [
+        'numeric' => ':attribute 大小必须为 :size。',
+        'file'    => ':attribute 大小必须为 :size kb。',
+        'string'  => ':attribute 必须是 :size 个字符。',
+        'array'   => ':attribute 必须为 :size 个单元。',
+    ],
     'string'               => ':attribute 必须是一个字符串。',
     'timezone'             => ':attribute 必须是一个合法的时区值。',
     'url'                  => ':attribute 格式不正确。',
@@ -65,9 +86,6 @@ return [
     'custom' => [
         'attribute-name'       => [
             'rule-name' => 'custom-message',
-        ],
-        'phone_no'             => [
-            'regex' => '手机号格式不正确',
         ],
     ],
 
@@ -106,18 +124,12 @@ return [
         'second'                       => '秒',
         'title'                        => '标题',
         'content'                      => '内容',
-        'description'                  => '描述',
-        'excerpt'                      => '摘要',
         'date'                         => '日期',
         'time'                         => '时间',
-        'available'                    => '可用的',
         'size'                         => '大小',
-        'client_id'                    => '终端ID',
-        'client_sn'                    => '终端编号',
-        'client_name'                  => '终端名',
-        'store_id'                     => '门店',
         'start_time'                   => '开始时间',
         'end_time'                     => '结束时间',
-        'user_name'                    => '用户名',
+        'user_name'                    => '用户名'
     ],
+
 ];

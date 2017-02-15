@@ -16,6 +16,6 @@ return [
     'previous' => '&laquo; 上一页',
     'next'     => '下一页 &raquo;',
     'first'    => '第一页',
-    'end'      => '最后一页',
+    'last'      => '最后一页',
     'total'    => '总数',
 ];
