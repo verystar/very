@@ -3,6 +3,7 @@ return array(
     'charset'       => 'utf-8',
     'timezone'      => 'Asia/Shanghai',
     'resource_url'=> ENVIRON == 'local' ? '//localhost/' : '//localhost/',
+    'locale'        => 'zh-CN',
     /*
     |--------------------------------------------------------------------------
     | Logging Configuration
@@ -39,6 +40,8 @@ return array(
         Very\Support\StatServiceProvider::class,
         Very\Session\SessionServiceProvider::class,
         Very\Cookie\CookieServiceProvider::class,
+        Very\Translation\TranslationServiceProvider::class,
+        Very\Validation\ValidationServiceProvider::class,
 
         /*
          * Package Service Providers...

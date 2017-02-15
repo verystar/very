@@ -1,5 +1,5 @@
 <?php
-namespace App\Controllers;
+namespace App\Http\Controllers;
 
 /**
  * Created by PhpStorm.

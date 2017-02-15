@@ -1,9 +1,7 @@
 <?php
 /**
- * 程序入口文件
- * @author fifsky<fifsky@Qq.com>
+ * Very Application
+ * @author caixudong<caixudong@verystar.cn>
  */
 $app = include __DIR__ . '/../bootstrap.php';
-$app->set('namespace', 'App');
-
-$app->make('router')->init();
+$app->make(App\Http\Kernel::class);
