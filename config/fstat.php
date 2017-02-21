@@ -8,14 +8,14 @@
 if (ENVIRON == 'local') {
     return [
         'use_db'    => 'default',
-        'is_stat'   => true,
+        'is_stat'   => false,
         'db_prefix' => 'test_',
         'use_redis' => 'default',
     ];
 } else {
     return [
         'use_db'    => 'default',
-        'is_stat'   => true,
+        'is_stat'   => false,
         'db_prefix' => 'test_',
         'use_redis' => 'default',
     ];
