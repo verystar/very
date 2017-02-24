@@ -2,37 +2,36 @@
 
 namespace App\Exceptions;
 
-use Very\Http\Exception\HttpResponseException;
+use Exception;
+use Very\Exceptions\Handler as ExceptionHandler;
 
-class Handler
+class Handler extends ExceptionHandler
 {
+    public function report(Exception $e)
+    {
+        parent::report($e);
+        mstat()->set(1, 'BUG错误', "PHP错误", "file:{$e->getFile()} | line:{$e->getLine()}", "Error Info:<br/>\n" . $e->getMessage(), 100);
+    }
+
     /**
      * Render an exception into an HTTP response.
      *
-     * @param HttpResponseException $e
-     *
-     * @return bool
+     * @param Exception $e
      */
-    public function render(HttpResponseException $e)
+    public function render(Exception $e)
     {
-        if (!is_object($e)) {
-            response()->setStatusCode(403);
-            echo 'not found.';
+        parent::render($e);
+    }
 
-            return false;
-        }
-
-        /* error occurs */
-        switch ($e->getCode()) {
-            case HttpResponseException::ERR_NOTFOUND_CONTROLLER:
-            case HttpResponseException::ERR_NOTFOUND_ACTION:
-            case HttpResponseException::ERR_NOTFOUND_VIEW:
-                response()->setStatusCode(404);
-                echo $e->getMessage();
-                break;
-            default :
-                echo 0, ':', $e->getMessage();
-                break;
+    /**
+     * PHP shutdown run
+     */
+    public function shutdown()
+    {
+        if ($_SERVER['REQUEST_TIME'] || $_SERVER['REQUEST_TIME_FLOAT']) {
+            $start_time = $_SERVER['REQUEST_TIME_FLOAT'] ? $_SERVER['REQUEST_TIME_FLOAT'] : $_SERVER['REQUEST_TIME'];
+            $uri        = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+            mstat()->set(1, '程序执行效率', mstat()->diffTime($start_time), $uri);
         }
     }
 }
