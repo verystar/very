@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers\Test;
 
+use Very\Controller;
 use App\Models\UserModel;
 
 /**
@@ -8,7 +9,7 @@ use App\Models\UserModel;
  * Date: 14-6-11
  * Time: 下午10:33
  */
-class FooController
+class FooController extends Controller
 {
 
     /**
@@ -31,7 +32,7 @@ class FooController
 
         $this->userModel->update([
             'user_name' => 'test2',
-            'user_id'  => $id
+            'user_id'   => $id
         ]);
 
         p($this->userModel->get($id));
