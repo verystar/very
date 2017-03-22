@@ -12,6 +12,8 @@ use App\Models\UserModel;
 class FooController extends Controller
 {
 
+    protected $userModel;
+
     /**
      * FooController constructor.
      *
