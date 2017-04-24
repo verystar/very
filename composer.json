@@ -7,7 +7,7 @@
   "authors": [
     {
       "name": "fifsky",
-      "email": "caixudong@verystar.cn"
+      "email": "xudong.cai@verystar.cn"
     }
   ],
   "require": {
@@ -16,7 +16,7 @@
     "sentry/sentry": "^1.5.0"
   },
   "require-dev": {
-    "phpunit/phpunit": "~5.1"
+    "phpunit/phpunit": "~5.7"
   },
   "autoload": {
     "files": [
@@ -25,5 +25,15 @@
     "psr-4": {
       "App\\": "app/"
     }
+  },
+  "autoload-dev": {
+      "psr-4": {
+          "Tests\\": "tests/"
+      }
+  },
+  "config": {
+      "preferred-install": "dist",
+      "sort-packages": true,
+      "optimize-autoloader": true
   }
 }
