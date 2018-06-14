@@ -2,14 +2,7 @@
 
 namespace App\Providers;
 
-use App\Models\AppModel;
-use App\Models\ClientModel;
-use App\Models\CouponModel;
-use App\Models\OperatorModel;
-use App\Models\OrderModel;
-use App\Models\StoreModel;
 use App\Models\UserModel;
-use App\Services\JobService;
 use Very\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider

@@ -7,20 +7,20 @@
  */
 
 if (ENVIRON == 'local') {
-    return array(
-        'default' => array(
+    return [
+        'default' => [
             'driver'   => 'mysql',
-            'username' => 'test',
+            'username' => 'root',
             'password' => '123456',
             'database' => 'test',
-            'host'     => '127.0.0.1',
+            'host'     => 'localhost',
             'port'     => 3306,
             'chatset'  => 'UTF8',
-        )
-    );
+        ],
+    ];
 } else {
-    return array(
-        'default' => array(
+    return [
+        'default' => [
             'driver'   => 'mysql',
             'username' => 'test',
             'password' => '123456',
@@ -28,6 +28,6 @@ if (ENVIRON == 'local') {
             'host'     => '127.0.0.1',
             'port'     => 3306,
             'chatset'  => 'UTF8',
-        )
-    );
+        ]
+    ];
 }

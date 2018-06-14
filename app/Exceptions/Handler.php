@@ -7,6 +7,12 @@ use Very\Exceptions\Handler as ExceptionHandler;
 
 class Handler extends ExceptionHandler
 {
+
+    /**
+     * @param \Exception $e
+     *
+     * @throws \Exception
+     */
     public function report(Exception $e)
     {
         parent::report($e);
@@ -17,6 +23,8 @@ class Handler extends ExceptionHandler
      * Render an exception into an HTTP response.
      *
      * @param Exception $e
+     *
+     * @throws \Exception
      */
     public function render(Exception $e)
     {

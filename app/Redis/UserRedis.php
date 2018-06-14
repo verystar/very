@@ -13,7 +13,6 @@ class UserRedis extends BaseRedis {
 
     public function __construct() {
         //开启监控
-        $this->redis()->setStat(true);
         $this->filed = $this->field('users');
     }
 
